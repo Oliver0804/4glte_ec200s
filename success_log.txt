@@ -1,0 +1,138 @@
+[12:57:51.154]~ # pppd  call quectel-ppp &
+[12:57:51.156][1] 315 pppd call quectel-ppp
+[12:57:51.357]~ # pppd options in effect:
+[12:57:51.358]debug           # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.358]nodetach                # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.359]dump            # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.359]noauth          # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.359]user test               # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.360]password ??????         # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.361]remotename 3gppp               # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.362]/dev/ttyUSB2            # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.363]115200          # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.364]lock            # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.365]connect chat -s -v -f /etc/ppp/peers/quectel-chat-connect               # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.366]disconnect chat -s -v -f /etc/ppp/peers/quectel-chat-disconnect         # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.367]nocrtscts               # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.367]modem           # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.368]noendpoint              # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.369]hide-password           # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.370]novj            # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.371]novjccomp               # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.372]ipcp-accept-local              # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.373]ipcp-accept-remote             # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.374]ipparam 3gppp           # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.375]noipdefault             # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.377]ipcp-max-failure 15            # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.389]defaultroute            # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.389]usepeerdns              # (from /etc/ppp/peers/quectel-ppp)
+[12:57:51.391]noccp           # (from /etc/ppp/peers/quectel-ppp)
+[12:57:52.318]abort on (BUSY)
+[12:57:52.318]abort on (NO CARRIER)
+[12:57:52.319]abort on (NO DIALTONE)
+[12:57:52.319]abort on (ERROR)
+[12:57:52.319]abort on (NO ANSWER)
+[12:57:52.319]timeout set to 30 seconds
+[12:57:52.321]send (AT^M)
+[12:57:52.363][   32.330000] musb_ep_program 1067: broken !rx_reinit, ep2 csr a800
+[12:57:52.365]expect (OK)
+[12:57:52.376]AT^M^M
+[12:57:52.377]OK
+[12:57:52.377] -- got it
+[12:57:52.377]
+[12:57:52.379]send (ATE0^M)
+[12:57:52.474]expect (OK)
+[12:57:52.474]^M
+[12:57:52.474]ATE0^M^M
+[12:57:52.475]OK
+[12:57:52.475] -- got it
+[12:57:52.475]
+[12:57:52.476]send (ATI;+CSUB;+CSQ;+CPIN?;+COPS?;+CGREG?;&D2^M)
+[12:57:53.305]expect (OK)
+[12:57:53.305]^M
+[12:57:53.306]^M
+[12:57:53.306]Quectel^M
+[12:57:53.306]EC200T^M
+[12:57:53.306]Revision: EC200TCNDAR02A07M16^M
+[12:57:53.307]^M
+[12:57:53.307]SubEdition: V03^M
+[12:57:53.307]^M
+[12:57:53.308]+CSQ: 31,99^M
+[12:57:53.308]^M
+[12:57:53.308]+CGREG: 0,1^M
+[12:57:53.309]^M
+[12:57:53.309]+CPIN: READY^M
+[12:57:53.309]^M
+[12:57:53.310]+COPS: 0,0,"CHINA MOBILE",7^M
+[12:57:53.310]^M
+[12:57:53.310]OK
+[12:57:53.310] -- got it
+[12:57:53.310]
+[12:57:53.312]send (AT+CGDCONT=1,"IP","3gnet",,0,0^M)
+[12:57:53.914]expect (OK)
+[12:57:53.915]^M
+[12:57:55.014]^M
+[12:57:55.038]OK
+[12:57:55.039] -- got it
+[12:57:55.039]
+[12:57:55.041]send (ATD*99#^M)
+[12:57:55.211]expect (CONNECT)
+[12:57:55.211]^M
+[12:57:55.212]^M
+[12:57:55.212]CONNECT
+[12:57:55.213] -- got it
+[12:57:55.218]
+[12:57:55.229]Script chat -s -v -f /etc/ppp/peers/quectel-chat-connect finished (pid 318), status = 0x0
+[12:57:55.229]Serial connection established.
+[12:57:55.229]using channel 1
+[12:57:55.230]Using interface ppp0
+[12:57:55.230]Connect: ppp0 <--> /dev/ttyUSB2
+[12:57:56.331]sent [LCP ConfReq id=0x1 <asyncmap 0x0> <magic 0x4f72e923> <pcomp> <accomp>]
+[12:57:56.332]rcvd [LCP ConfReq id=0x1 <asyncmap 0x0> <auth pap> <magic 0x13545234> <pcomp> <accomp>]
+[12:57:56.333]sent [LCP ConfAck id=0x1 <asyncmap 0x0> <auth pap> <magic 0x13545234> <pcomp> <accomp>]
+[12:57:56.333]rcvd [LCP ConfAck id=0x1 <asyncmap 0x0> <magic 0x4f72e923> <pcomp> <accomp>]
+[12:57:56.334]sent [PAP AuthReq id=0x1 user="test" password=<hidden>]
+[12:57:56.334]rcvd [PAP AuthAck id=0x1 "" 00]
+[12:57:56.335]PAP authentication succeeded
+[12:57:56.335]sent [IPCP ConfReq id=0x1 <addr 0.0.0.0> <ms-dns1 0.0.0.0> <ms-dns2 0.0.0.0>]
+[12:57:56.336]rcvd [IPCP ConfReq id=0x2]
+[12:57:56.336]sent [IPCP ConfNak id=0x2 <addr 0.0.0.0>]
+[12:57:56.338]rcvd [IPCP ConfNak id=0x1 <addr 10.151.68.87> <ms-dns1 211.136.20.203> <ms-dns2 211.136.17.107>]
+[12:57:56.338]sent [IPCP ConfReq id=0x2 <addr 10.151.68.87> <ms-dns1 211.136.20.203> <ms-dns2 211.136.17.107>]
+[12:57:56.339]rcvd [IPCP ConfReq id=0x3]
+[12:57:56.340]sent [IPCP ConfAck id=0x3]
+[12:57:56.341]rcvd [IPCP ConfAck id=0x2 <addr 10.151.68.87> <ms-dns1 211.136.20.203> <ms-dns2 211.136.17.107>]
+[12:57:56.341]Could not determine remote IP address: defaulting to 10.64.64.64
+[12:57:56.342]not replacing existing default route via 10.0.12.1
+[12:57:56.342]local  IP address 10.151.68.87
+[12:57:56.346]remote IP address 10.64.64.64
+[12:57:56.360]primary   DNS address 211.136.20.203
+[12:57:56.361]secondary DNS address 211.136.17.107
+[12:57:56.362]Script /etc/ppp/ip-up started (pid 323)
+[12:57:56.384]Script /etc/ppp/ip-up finished (pid 323), status = 0x0
+
+[12:58:07.081]~ # ifconfig 
+[12:58:07.231]eth0      Link encap:Ethernet  HWaddr 
+[12:58:07.232]          inet addr:    Bcast:    Mask:255.255.255.0
+[12:58:07.232]          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+[12:58:07.233]          RX packets:10400 errors:0 dropped:0 overruns:0 frame:0
+[12:58:07.233]          TX packets:8575 errors:0 dropped:0 overruns:0 carrier:0
+[12:58:07.233]          collisions:0 txqueuelen:1000 
+[12:58:07.234]          RX bytes:12193525 (11.6 MiB)  TX bytes:1154309 (1.1 MiB)
+[12:58:07.234]          Interrupt:68 
+[12:58:07.234]
+[12:58:07.234]lo        Link encap:Local Loopback  
+[12:58:07.234]          inet addr:127.0.0.1  Mask:255.0.0.0
+[12:58:07.235]          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+[12:58:07.235]          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+[12:58:07.235]          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+[12:58:07.236]          collisions:0 txqueuelen:0 
+[12:58:07.236]          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+[12:58:07.236]
+[12:58:07.236]ppp0      Link encap:Point-to-Point Protocol  
+[12:58:07.237]          inet addr:10.151.68.87  P-t-P:10.64.64.64  Mask:255.255.255.255
+[12:58:07.238]          UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1500  Metric:1
+[12:58:07.238]          RX packets:4 errors:0 dropped:0 overruns:0 frame:0
+[12:58:07.240]          TX packets:4 errors:0 dropped:0 overruns:0 carrier:0
+[12:58:07.254]          collisions:0 txqueuelen:3 
+[12:58:07.254]          RX bytes:52 (52.0 B)  TX bytes:58 (58.0 B)

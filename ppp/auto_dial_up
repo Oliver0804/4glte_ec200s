@@ -1,0 +1,69 @@
+#!/bin/bash
+
+REPING_TIME=5
+NET_TIMEOUT=30
+
+dial_up(){
+pppd call quectel-ppp &
+sleep 2
+cout=0
+while true
+do
+	ifconfig | grep "ppp0"
+	if [ "$?" = "0" ]
+	then
+	#拨号成功，设置默认网关
+		ifconfig ppp0 netmask 255.255.255.0
+		route del default
+		route add default ppp0
+		break
+	else
+	#网络没有准备好，计时
+		let cout+=1
+		if [ "${cout}" = "${NET_TIMEOUT}" ]
+		then
+			echo "***************************ppp0 time out: ${cout}"
+			#exit
+			killall pppd
+			break
+		fi
+		sleep 1
+	fi	
+done
+#获取dns服务器地址
+dns=$(cat /etc/ppp/resolv.conf | grep 'nameserver' | sed 's/^.*nameserver //g')
+dns1=$(echo $dns | cut -d ' ' -f 1)
+dns2=$(echo $dns | cut -d ' ' -f 2)
+
+#获取本地的IP地址
+#local_ip=$(ifconfig ppp0 | grep 'inet addr' | sed 's/^.*addr://g' | sed 's/ P-t-P.*$//g')
+#echo "local_ip:${local_ip}"
+#sleep 1
+}
+
+
+echo " ********************************** dial up **********************************"
+dial_up
+
+
+#实时监控网络状态
+while true
+do      
+	ping -s 1 -c 1 $dns1 #> /dev/zero   #去PING第一个DNS
+	if [ "$?" != "0" ]      #假如PING不通
+	then
+		ping -s 1 -c 2 $dns2 #> /dev/zero #去PING第二个DNS
+		if [ "$?" != "0" ]     #假如PING不通
+		then   
+			echo " ********************************** redial ********************************** "
+			killall pppd         #结束PPPD进程
+			sleep 2
+			dial_up
+		else
+			sleep $REPING_TIME #如果是PING  DNS2通的话就直接等待5秒
+		fi   
+	else
+		sleep $REPING_TIME #如果是PING  DNS1通的话就直接等待5秒（一般要设置多长时间去PING请改这里）
+	fi               
+done
+

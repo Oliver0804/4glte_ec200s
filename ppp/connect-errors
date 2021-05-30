@@ -1,0 +1,10 @@
+abort on (ERROR)
+abort on (NO DIALTONE)
+
+Sending break to the modem
+send (+++^M)
+send (+++^M)
+send (+++^M)
+
+Goodbay
+
