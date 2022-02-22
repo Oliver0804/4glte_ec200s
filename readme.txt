@@ -1,23 +1,55 @@
-copy ppp to /etc 
+å…ˆå®‰è£
+install minicom
+install pppd
+
+æ›¿ä»£èª¿å¸ƒä»½æ–‡ä»¶
+# copy ppp to /etc 
+$sudo cp -R  ppp /etc/
 
 copy chat and pppd to /sbin
-  
+$sudo cp pppd /sbin
+
 
 run pppd call quectel-ppp &
 
 
-¸ü¸ÄÔËÓªÉÌ
 
-½«ppp/peers/quectel-chat-connectÀïµÄ
+
+æ›´æ”¹è¿è¥å•†
+
+å°†ppp/peers/quectel-chat-connecté‡Œçš„
 
 OK AT+CGDCONT=1,"IP","3gnet",,0,0
 
 OK ATD*99#
 
-¸ÄÎªÏàÓ¦µÄÖµ
+æ”¹ä¸ºç›¸åº”çš„å€¼
 
-ÒÆ¶¯£º at+cgdcont=1,"ip","cmnet"
+ç§»åŠ¨ï¼š at+cgdcont=1,"ip","cmnet"
 
-ÁªÍ¨£º at+cgdcont=1,"ip","3gnet"
+è”é€šï¼š at+cgdcont=1,"ip","3gnet"
 
-µçĞÅ£º at+cgdcont=1,"ip","ctnet"
+ç”µä¿¡ï¼š at+cgdcont=1,"ip","ctnet"
+
+
+service
+   96  chmod +x lte.py
+   97  cat lte.service
+   99  sudo cp lte.service /etc/systemd/system/
+  100  cd /etc/systemd/system
+  102  sudo chmod 644 lte.service
+  103  sudo systemctrl lte.service
+  105  sudo systemctl daemon-reload
+  106  sudo systemctl start lte
+  107  sudo systemctl status lte
+  108  sudo systemctl enable lte
+  
+  
+    122  chmod +x adcsetspeark.py
+  123  sudo cp sound.service /etc/systemd/system/
+  124  sudo chmod 644 /etc/systemd/system/sound.service
+  125  sudo systemctl daemon-reload
+  126  sudo systemctrl enable sound
+  127  sudo systemctl enable sound
+  128  sudo reboot
+
